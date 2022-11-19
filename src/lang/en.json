@@ -1,0 +1,18 @@
+{
+  "app.error": "Something went wrong!",
+  "app.field.password": "Password ",
+  "app.field.phoneNumber": "Phone number ",
+  "app.field.email": "Email ",
+  "app.field.username": "Username ",
+  "app.field.rePassword": "Confirm password ",
+  "app.field.fullName": "Full name ",
+  "app.field.yourEmail": "Your email",
+  "app.register": "Register",
+  "app.login": "Login",
+  "app.login.dontHaveAccount": "Don't have an account? ",
+  "app.login.error": "Wrong phone number or password!",
+  "app.login.desc": "Use your phone number to login",
+  "app.login.inactive": "Your account has not been activated. Please check your email and active account!",
+  "app.forgotPassword": "Forgot Password",
+  "app.forgotPassword.reset": "Reset Password"
+}

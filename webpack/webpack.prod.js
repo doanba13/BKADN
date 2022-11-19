@@ -3,7 +3,6 @@ const { resolve } = require('path');
 const { removeDataTestIdTransformer } = require('typescript-transformer-jsx-remove-data-test-id');
 const CommonConfig = require('./webpack.common');
 const CompressionPlugin = require('compression-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 // import WebpackAssetsManifest = require('webpack-assets-manifest'
 
@@ -30,8 +29,6 @@ module.exports = merge(CommonConfig, {
     },
 
     plugins: [
-        new BundleAnalyzerPlugin(),
-
         new CompressionPlugin({
             test: /\.(js|css)(\?.*)?$/i,
             filename: '[path][base].gz',

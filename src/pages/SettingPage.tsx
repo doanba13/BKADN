@@ -29,7 +29,6 @@ export const SettingPage = () => {
                     >
                         <Select>
                             <Option value={1}>Phase 1</Option>
-                            <Option value={2}>Phase 2</Option>
                             <Option value={3}>Phase 3</Option>
                         </Select>
                     </Form.Item>

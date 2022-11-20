@@ -23,15 +23,35 @@ const CardContainer = styled.div`
     }
 `;
 
-export const DataCard = ({ hasMore = false }: { hasMore?: boolean }) => {
+export const DataCard = ({
+    hasMore = false,
+    title,
+    value,
+    v2,
+    v3,
+    unit,
+}: {
+    hasMore?: boolean;
+    title: string;
+    value: number;
+    v2?: number;
+    v3?: number;
+    unit?: string;
+}) => {
     return (
         <CardContainer>
-            <h1>Vrms-AN</h1>
-            <h2>42.2 V</h2>
+            <h1>{title}</h1>
+            <h2>
+                {value} {unit}
+            </h2>
             {hasMore && (
                 <>
-                    <h2>42.2 V</h2>
-                    <h2>42.2 V</h2>
+                    <h2>
+                        {v2} {unit}
+                    </h2>
+                    <h2>
+                        {v3} {unit}
+                    </h2>
                 </>
             )}
         </CardContainer>

@@ -90,14 +90,14 @@ export const RowChartPage = () => {
         <Layout style={{ flexDirection: 'row', paddingTop: '100px' }}>
             <div style={{ display: 'flex', marginRight: '100px' }}>
                 <div style={{ margin: '0 50px' }}>
-                    <DataCard />
-                    <DataCard />
-                    <DataCard />
+                    <DataCard title="Test" value={1} />
+                    <DataCard title="Test" value={1} />
+                    <DataCard title="Test" value={1} />
                 </div>
                 <div>
-                    <DataCard />
-                    <DataCard />
-                    <DataCard />
+                    <DataCard title="Test" value={1} />
+                    <DataCard title="Test" value={1} />
+                    <DataCard title="Test" value={1} />
                 </div>
             </div>
             <div style={{ width: '800px', position: 'relative' }}>

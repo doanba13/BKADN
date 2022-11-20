@@ -3,7 +3,7 @@ import { onValue, ref } from 'firebase/database';
 
 import { realtimeDb } from './FirebaseService';
 
-const inititalData = {
+const inititalData: any = {
     CTratio: 26.66,
     CompMan: {
         CompMan1: 0,

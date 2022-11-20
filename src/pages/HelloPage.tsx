@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { Button, Layout, Switch } from 'antd';
 import Slider, { SliderMarks } from 'antd/lib/slider';
@@ -35,9 +35,13 @@ const marks: SliderMarks = {
 };
 
 const HelloPage = () => {
-    const { Vrms, Irms, Pload, Qload, Sload, PFload, THDI, THDV, PFcomped, Qcomped, Pcomped, Scomped, Steps } =
+    const { Vrms, Irms, Pload, Qload, Sload, PFload, THDI, THDV, PFcomped, Qcomped, Pcomped, Scomped, Steps, Start } =
         useGetData();
     const [isStart, setIsStart] = useState(false);
+
+    useEffect(() => {
+        setIsStart(Start);
+    }, [Start]);
 
     const writeData = (data: any, idx: number) => {
         update(ref(realtimeDb, 'MStep'), {
@@ -48,7 +52,8 @@ const HelloPage = () => {
     const startStopHandler = () => {
         setIsStart(!isStart);
         update(ref(realtimeDb), {
-            start: isStart ? 0 : 1,
+            Start: !isStart,
+            Submit: !isStart,
         });
     };
 
@@ -125,6 +130,15 @@ const HelloPage = () => {
                             }}
                         >
                             <Button onClick={startStopHandler}>{isStart ? 'Stop' : 'Start'}</Button>
+                            <div
+                                style={{
+                                    width: '32px',
+                                    height: '32px',
+                                    borderRadius: 50,
+                                    border: '1px solid #fff',
+                                    backgroundColor: isStart ? 'green' : 'red',
+                                }}
+                            />
                             <Switch
                                 checkedChildren="Auto"
                                 unCheckedChildren="Manual"

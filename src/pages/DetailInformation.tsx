@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { Button, Layout, Switch } from 'antd';
 import Slider, { SliderMarks } from 'antd/lib/slider';
@@ -39,9 +39,28 @@ export const StyledH1 = styled.h1`
 `;
 
 const DetailInfo = () => {
-    const { Vrms, Irms, Pload, Qload, Sload, PFload, THDI, THDV, PFcomped, Qcomped, Pcomped, Scomped, Steps, MStep } =
-        useGetData();
+    const {
+        Vrms,
+        Irms,
+        Pload,
+        Qload,
+        Sload,
+        PFload,
+        THDI,
+        THDV,
+        PFcomped,
+        Qcomped,
+        Pcomped,
+        Scomped,
+        Steps,
+        MStep,
+        Start,
+    } = useGetData();
     const [isStart, setIsStart] = useState(false);
+
+    useEffect(() => {
+        setIsStart(Start);
+    }, [Start]);
 
     const writeData = (data: any) => {
         update(ref(realtimeDb, 'MStep'), {
@@ -52,7 +71,8 @@ const DetailInfo = () => {
     const startStopHandler = () => {
         setIsStart(!isStart);
         update(ref(realtimeDb), {
-            start: isStart ? 0 : 1,
+            Start: !isStart,
+            Submit: !isStart,
         });
     };
 
@@ -101,6 +121,15 @@ const DetailInfo = () => {
                             }}
                         >
                             <Button onClick={startStopHandler}>{isStart ? 'Stop' : 'Start'}</Button>
+                            <div
+                                style={{
+                                    width: '32px',
+                                    height: '32px',
+                                    borderRadius: 50,
+                                    border: '1px solid #fff',
+                                    backgroundColor: isStart ? 'green' : 'red',
+                                }}
+                            />
                             <Switch
                                 checkedChildren="Auto"
                                 unCheckedChildren="Manual"

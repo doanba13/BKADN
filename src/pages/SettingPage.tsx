@@ -1,8 +1,35 @@
+import { useEffect, useState } from 'react';
+import { ref, update } from '@firebase/database';
 import { Button, Form, Input, Layout, Select } from 'antd';
+
+import LoadingComponent from '@/component/LoadingComponent';
+import { realtimeDb } from '@/fetcher/FirebaseService';
+import { useGetData } from '@/fetcher/useGetData';
 
 const { Option } = Select;
 
 export const SettingPage = () => {
+    const { CTratio, PFSet, Fmode } = useGetData();
+    const [isLoading, setLoading] = useState(true);
+
+    const [form] = Form.useForm();
+
+    useEffect(() => {
+        setLoading(false);
+        form.setFieldsValue({ phaseMode: Fmode, ctRatio: CTratio, powerFactor: PFSet });
+    }, [CTratio, PFSet, Fmode]);
+
+    const onSubmitHandler = (value: any) => {
+        update(ref(realtimeDb), {
+            Fmode: value.phaseMode,
+            Submit: true,
+            CTratio: +value.ctRatio,
+            PFSet: +value.powerFactor,
+        });
+    };
+
+    if (isLoading) return <LoadingComponent />;
+
     return (
         <Layout style={{ alignItems: 'center', justifyContent: 'center', height: '800px' }}>
             <div
@@ -15,35 +42,23 @@ export const SettingPage = () => {
             >
                 <Form
                     name="basic"
+                    form={form}
                     labelCol={{ span: 6 }}
                     wrapperCol={{ span: 16 }}
                     initialValues={{ remember: true }}
-                    onFinish={() => null}
+                    onFinish={onSubmitHandler}
                     autoComplete="off"
                 >
-                    <Form.Item
-                        label="Phase Mode"
-                        name="phaseMode"
-                        initialValue={1}
-                        // rules={[{ required: true, message: 'Please input your username!' }]}
-                    >
+                    <Form.Item label="Phase Mode" name="phaseMode">
                         <Select>
                             <Option value={1}>Phase 1</Option>
-                            <Option value={3}>Phase 3</Option>
+                            <Option value={2}>Phase 3</Option>
                         </Select>
                     </Form.Item>
-                    <Form.Item
-                        label="CT Ratio"
-                        name="ctRatio"
-                        // rules={[{ required: true, message: 'Please input your username!' }]}
-                    >
+                    <Form.Item label="CT Ratio" name="ctRatio">
                         <Input />
                     </Form.Item>
-                    <Form.Item
-                        label="Power Factor Set"
-                        name="powerFactor"
-                        // rules={[{ required: true, message: 'Please input your username!' }]}
-                    >
+                    <Form.Item label="Power Factor Set" name="powerFactor">
                         <Input />
                     </Form.Item>
 

@@ -55,6 +55,7 @@ const DetailInfo = () => {
         Steps,
         MStep,
         Start,
+        Man,
     } = useGetData();
     const [isStart, setIsStart] = useState(false);
 
@@ -78,7 +79,7 @@ const DetailInfo = () => {
 
     const toggleSetSellect = (data: boolean) => {
         update(ref(realtimeDb), {
-            csel: data,
+            Man: data,
         });
     };
 
@@ -133,7 +134,7 @@ const DetailInfo = () => {
                             <Switch
                                 checkedChildren="Auto"
                                 unCheckedChildren="Manual"
-                                defaultChecked
+                                defaultChecked={Man}
                                 onChange={(checked) => toggleSetSellect(!checked)}
                                 style={{ width: '70px' }}
                             />

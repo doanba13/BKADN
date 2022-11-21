@@ -41,7 +41,7 @@ const inititalData: any = {
         V2: [],
         V3: [],
     },
-    Man: true,
+    Man: false,
     PFSet: undefined,
     PFcomped: {
         PFload0: 0,

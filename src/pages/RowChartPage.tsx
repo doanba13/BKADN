@@ -11,8 +11,10 @@ import {
     Title,
     Tooltip,
 } from 'chart.js';
+import { ref, update } from 'firebase/database';
 
 import { DataCard } from '@/component/Card';
+import { realtimeDb } from '@/fetcher/FirebaseService';
 import { useGetData } from '@/fetcher/useGetData';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -60,13 +62,11 @@ const createChartData = (data: any, type: boolean) => {
     };
 };
 
-export const RowChartPage = () => {
+const RowChartPage = () => {
     const { MV, Vrms, Irms, MI } = useGetData();
 
     const [toggleChart, setToggleChart] = useState(true);
     const [chartData, setChartData] = useState<any>(createChartData(MV, toggleChart));
-
-    console.log(chartData);
 
     useEffect(() => {
         console.log(createChartData(MV, toggleChart));
@@ -94,10 +94,14 @@ export const RowChartPage = () => {
             </div>
             <div style={{ width: '800px', position: 'relative' }}>
                 <Switch
-                    checkedChildren="Voltage"
-                    unCheckedChildren="Current"
-                    defaultChecked
-                    onChange={() => setToggleChart(!toggleChart)}
+                    checkedChildren="Current"
+                    unCheckedChildren="Voltage"
+                    onChange={(value) => {
+                        setToggleChart(!toggleChart);
+                        update(ref(realtimeDb), {
+                            csel: value ? true : false,
+                        });
+                    }}
                     style={{ width: '70px', position: 'absolute', top: 10, left: 10 }}
                 />
                 <Line options={options} data={chartData} />
@@ -105,3 +109,5 @@ export const RowChartPage = () => {
         </Layout>
     );
 };
+
+export default RowChartPage;

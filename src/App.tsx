@@ -36,11 +36,46 @@ const App = () => {
                             defaultSelectedKeys={['1']}
                             style={{ padding: '20px' }}
                             items={[
-                                { key: 1, label: <Link to={'/'}>Home</Link> },
-                                { key: 2, label: <Link to={'/detail'}>Detail</Link> },
-                                { key: 3, label: <Link to={'/chart-1'}>Chart 1</Link> },
-                                { key: 4, label: <Link to={'/chart-2'}>Chart 2</Link> },
-                                { key: 5, label: <Link to={'/chart-3'}>Chart 3</Link> },
+                                {
+                                    key: 1,
+                                    label: (
+                                        <Link to={'/'}>
+                                            <h1>Main 3 phase</h1>
+                                        </Link>
+                                    ),
+                                },
+                                {
+                                    key: 2,
+                                    label: (
+                                        <Link to={'/detail'}>
+                                            <h1>Main 1 phase</h1>
+                                        </Link>
+                                    ),
+                                },
+                                {
+                                    key: 3,
+                                    label: (
+                                        <Link to={'/chart-1'}>
+                                            <h1>Graph Power</h1>
+                                        </Link>
+                                    ),
+                                },
+                                {
+                                    key: 4,
+                                    label: (
+                                        <Link to={'/chart-2'}>
+                                            <h1>Waveform</h1>
+                                        </Link>
+                                    ),
+                                },
+                                {
+                                    key: 5,
+                                    label: (
+                                        <Link to={'/chart-3'}>
+                                            <h1>Setting</h1>
+                                        </Link>
+                                    ),
+                                },
                             ]}
                         />
                         <div>

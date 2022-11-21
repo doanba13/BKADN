@@ -4,13 +4,12 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 
 import LoadingComponent from '@/component/LoadingComponent';
 
-import { ChartPage } from './ChartPage';
-import DetailInfo from './DetailInformation';
-import { RowChartPage } from './RowChartPage';
-import { SettingPage } from './SettingPage';
-
 const HelloPage = React.lazy(/* webpackChunkName: "hello-component" */ () => import('@/pages/HelloPage'));
 const NotFoundPage = React.lazy(/* webpackChunkName: "not-found-page" */ () => import('@/pages/NotFoundPage'));
+const ChartPage = React.lazy(/* webpackChunkName: "ChartPage" */ () => import('./ChartPage'));
+const DetailInfo = React.lazy(/* webpackChunkName: "DetailInfo" */ () => import('./DetailInformation'));
+const RowChartPage = React.lazy(/* webpackChunkName: "RowChartPage" */ () => import('./RowChartPage'));
+const SettingPage = React.lazy(/* webpackChunkName: "SettingPage" */ () => import('./SettingPage'));
 const ErrorFallBack = React.lazy(/* webpackChunkName: "login-page" */ () => import('@/pages/ErrorFallbackPage'));
 
 const ApplicationRoutes = () => {

@@ -8,7 +8,7 @@ import { useGetData } from '@/fetcher/useGetData';
 
 const { Option } = Select;
 
-export const SettingPage = () => {
+const SettingPage = () => {
     const { CTratio, PFSet, Fmode } = useGetData();
     const [isLoading, setLoading] = useState(true);
 
@@ -72,3 +72,5 @@ export const SettingPage = () => {
         </Layout>
     );
 };
+
+export default SettingPage;

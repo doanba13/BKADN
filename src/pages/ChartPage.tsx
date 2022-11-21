@@ -44,7 +44,7 @@ export const options2 = {
 
 const labels = new Array(64).fill('');
 
-export const ChartPage = () => {
+const ChartPage = () => {
     const { PFcomped, PFload } = useGetData();
     const [pfComp, setPfcomp] = useState({ pfComp1: [], pfComp2: [], pfComp3: [] });
     const [pfLoad, setPfload] = useState({ pfLoad1: [], pfLoad2: [], pfLoad3: [] });
@@ -141,3 +141,5 @@ export const ChartPage = () => {
         </Layout>
     );
 };
+
+export default ChartPage;

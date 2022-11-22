@@ -24,7 +24,7 @@ export const options = {
         },
         title: {
             display: true,
-            text: 'Power Factor Before',
+            text: 'Power Factor After',
         },
     },
 };
@@ -37,7 +37,7 @@ export const options2 = {
         },
         title: {
             display: true,
-            text: 'Power Factor After',
+            text: 'Power Factor Before',
         },
     },
 };
@@ -83,35 +83,6 @@ const ChartPage = () => {
         <Layout style={{ flexDirection: 'column', paddingTop: '100px', alignItems: 'center' }}>
             <div style={{ width: '800px', position: 'relative' }}>
                 <Line
-                    options={options}
-                    data={{
-                        labels,
-                        datasets: [
-                            {
-                                label: 'A',
-                                data: pfComp.pfComp1,
-                                borderColor: 'rgb(255, 99, 132)',
-                                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                            },
-                            {
-                                label: 'B',
-                                data: pfComp.pfComp2,
-                                borderColor: 'rgb(240, 233, 42)',
-                                backgroundColor: 'rgba(241, 236, 95, 0.5)',
-                            },
-                            {
-                                label: 'C',
-                                data: pfComp.pfComp3,
-                                borderColor: 'rgb(128, 245, 89)',
-                                backgroundColor: 'rgba(87, 210, 49, 0.5)',
-                            },
-                        ],
-                    }}
-                />
-            </div>
-
-            <div style={{ width: '800px', position: 'relative' }}>
-                <Line
                     options={options2}
                     data={{
                         labels,
@@ -131,6 +102,34 @@ const ChartPage = () => {
                             {
                                 label: 'C',
                                 data: pfLoad.pfLoad3,
+                                borderColor: 'rgb(128, 245, 89)',
+                                backgroundColor: 'rgba(87, 210, 49, 0.5)',
+                            },
+                        ],
+                    }}
+                />
+            </div>
+            <div style={{ width: '800px', position: 'relative' }}>
+                <Line
+                    options={options}
+                    data={{
+                        labels,
+                        datasets: [
+                            {
+                                label: 'A',
+                                data: pfComp.pfComp1,
+                                borderColor: 'rgb(255, 99, 132)',
+                                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            },
+                            {
+                                label: 'B',
+                                data: pfComp.pfComp2,
+                                borderColor: 'rgb(240, 233, 42)',
+                                backgroundColor: 'rgba(241, 236, 95, 0.5)',
+                            },
+                            {
+                                label: 'C',
+                                data: pfComp.pfComp3,
                                 borderColor: 'rgb(128, 245, 89)',
                                 backgroundColor: 'rgba(87, 210, 49, 0.5)',
                             },

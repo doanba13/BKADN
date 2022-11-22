@@ -51,8 +51,8 @@ const SettingPage = () => {
                 >
                     <Form.Item label="Phase Mode" name="phaseMode">
                         <Select>
-                            <Option value={1}>Phase 1</Option>
-                            <Option value={2}>Phase 3</Option>
+                            <Option value={1}>1 Phase</Option>
+                            <Option value={2}>3 Phase</Option>
                         </Select>
                     </Form.Item>
                     <Form.Item label="CT Ratio" name="ctRatio">

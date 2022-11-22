@@ -41,20 +41,20 @@ const createChartData = (data: any, type: boolean) => {
         labels,
         datasets: [
             {
-                label: type ? 'MV 1' : 'MI 1',
+                label: type ? 'V1' : 'I1',
                 data: type ? data.V1 : data.I1,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
-                label: type ? 'MV 2' : 'MI 2',
+                label: type ? 'V2' : 'I2',
                 data: type ? data.V2 : data.I2,
                 borderColor: 'rgb(240, 233, 42)',
                 backgroundColor: 'rgba(241, 236, 95, 0.5)',
             },
             {
-                label: type ? 'MV 3' : 'MI 3',
-                data: type ? data.V2 : data.I2,
+                label: type ? 'V3' : 'I3',
+                data: type ? data.V3 : data.I3,
                 borderColor: 'rgb(128, 245, 89)',
                 backgroundColor: 'rgba(87, 210, 49, 0.5)',
             },
@@ -79,7 +79,7 @@ const RowChartPage = () => {
     }, [toggleChart]);
 
     return (
-        <Layout style={{ flexDirection: 'row', paddingTop: '100px' }}>
+        <Layout style={{ flexDirection: 'row', paddingTop: '100px', justifyContent: 'center' }}>
             <div style={{ display: 'flex', marginRight: '100px' }}>
                 <div style={{ margin: '0 50px' }}>
                     <DataCard title="Vrms A" value={Vrms.Vrms1} unit="V" />
@@ -100,6 +100,7 @@ const RowChartPage = () => {
                         setToggleChart(!toggleChart);
                         update(ref(realtimeDb), {
                             csel: value ? true : false,
+                            Submit: 1,
                         });
                     }}
                     style={{ width: '70px', position: 'absolute', top: 10, left: 10 }}

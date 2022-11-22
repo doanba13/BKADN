@@ -56,8 +56,10 @@ const DetailInfo = () => {
         MStep,
         Start,
         Man,
+        Freq,
     } = useGetData();
     const [isStart, setIsStart] = useState(false);
+    console.log(Steps);
 
     useEffect(() => {
         setIsStart(Start);
@@ -80,6 +82,7 @@ const DetailInfo = () => {
     const toggleSetSellect = (data: boolean) => {
         update(ref(realtimeDb), {
             Man: data,
+            Submit: 1,
         });
     };
 
@@ -98,6 +101,9 @@ const DetailInfo = () => {
                             <DataCard title="Irms B" value={Irms.Irms2} unit="A" />
                             <DataCard title="Irms C" value={Irms.Irms3} unit="A" />
                         </div>
+                        <div style={{ marginLeft: '1rem' }}>
+                            <DataCard title="Freq" value={Freq} unit="Hz" />
+                        </div>
                     </div>
                     <div style={{ width: '516px', display: 'grid', placeItems: 'center' }}>
                         <div style={{ width: '300px' }}>
@@ -108,6 +114,7 @@ const DetailInfo = () => {
                             onChange={(data: any) => writeData(data)}
                             style={{ width: '300px' }}
                             marks={marks}
+                            value={MStep.MStep1}
                             defaultValue={MStep.MStep1}
                             max={5}
                         />

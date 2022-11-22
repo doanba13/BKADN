@@ -35,8 +35,24 @@ const marks: SliderMarks = {
 };
 
 const HelloPage = () => {
-    const { Vrms, Irms, Pload, Qload, Sload, PFload, THDI, THDV, PFcomped, Qcomped, Pcomped, Scomped, Steps, Start } =
-        useGetData();
+    const {
+        Vrms,
+        Freq,
+        Irms,
+        Pload,
+        Qload,
+        Sload,
+        PFload,
+        THDI,
+        THDV,
+        PFcomped,
+        Qcomped,
+        Pcomped,
+        Scomped,
+        Steps,
+        Start,
+        MStep,
+    } = useGetData();
     const [isStart, setIsStart] = useState(false);
 
     useEffect(() => {
@@ -60,6 +76,7 @@ const HelloPage = () => {
     const toggleSetSellect = (data: boolean) => {
         update(ref(realtimeDb), {
             csel: data,
+            Submit: 1,
         });
     };
 
@@ -78,6 +95,9 @@ const HelloPage = () => {
                             <DataCard title="Irms B" value={Irms.Irms2} unit="A" />
                             <DataCard title="Irms C" value={Irms.Irms3} unit="A" />
                         </div>
+                        <div style={{ marginLeft: '1rem' }}>
+                            <DataCard title="Freq" value={Freq} unit="Hz" />
+                        </div>
                     </div>
                     <div style={{ width: '516px', display: 'grid', placeItems: 'center' }}>
                         <div style={{ display: 'flex', marginLeft: '-200px' }}>
@@ -89,6 +109,7 @@ const HelloPage = () => {
                                     onChange={(data: any) => writeData(data, 2)}
                                     style={{ width: '200px' }}
                                     marks={marks}
+                                    value={MStep.MStep2}
                                     defaultValue={0}
                                     max={5}
                                 />
@@ -101,6 +122,7 @@ const HelloPage = () => {
                                     onChange={(data: any) => writeData(data, 3)}
                                     style={{ width: '200px' }}
                                     marks={marks}
+                                    value={MStep.MStep3}
                                     defaultValue={0}
                                     max={5}
                                 />
@@ -113,6 +135,7 @@ const HelloPage = () => {
                                     onChange={(data: any) => writeData(data, 4)}
                                     style={{ width: '200px' }}
                                     marks={marks}
+                                    value={MStep.MStep4}
                                     defaultValue={0}
                                     max={5}
                                 />

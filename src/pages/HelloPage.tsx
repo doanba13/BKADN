@@ -52,6 +52,7 @@ const HelloPage = () => {
         Steps,
         Start,
         MStep,
+        Man,
     } = useGetData();
     const [isStart, setIsStart] = useState(false);
 
@@ -75,7 +76,7 @@ const HelloPage = () => {
 
     const toggleSetSellect = (data: boolean) => {
         update(ref(realtimeDb), {
-            csel: data,
+            Man: data,
             Submit: 1,
         });
     };
@@ -165,7 +166,7 @@ const HelloPage = () => {
                             <Switch
                                 checkedChildren="Auto"
                                 unCheckedChildren="Manual"
-                                defaultChecked
+                                checked={!Man}
                                 onChange={(checked) => toggleSetSellect(!checked)}
                                 style={{ width: '70px' }}
                             />

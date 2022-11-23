@@ -141,7 +141,7 @@ const DetailInfo = () => {
                             <Switch
                                 checkedChildren="Auto"
                                 unCheckedChildren="Manual"
-                                defaultChecked={Man}
+                                checked={!Man}
                                 onChange={(checked) => toggleSetSellect(!checked)}
                                 style={{ width: '70px' }}
                             />

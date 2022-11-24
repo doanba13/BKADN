@@ -92,18 +92,21 @@ const ChartPage = () => {
                                 data: pfLoad.pfLoad1,
                                 borderColor: 'rgb(255, 99, 132)',
                                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                                pointRadius: 0,
                             },
                             {
                                 label: 'B',
                                 data: pfLoad.pfLoad2,
                                 borderColor: 'rgb(240, 233, 42)',
                                 backgroundColor: 'rgba(241, 236, 95, 0.5)',
+                                pointRadius: 0,
                             },
                             {
                                 label: 'C',
                                 data: pfLoad.pfLoad3,
                                 borderColor: 'rgb(128, 245, 89)',
                                 backgroundColor: 'rgba(87, 210, 49, 0.5)',
+                                pointRadius: 0,
                             },
                         ],
                     }}
@@ -120,18 +123,21 @@ const ChartPage = () => {
                                 data: pfComp.pfComp1,
                                 borderColor: 'rgb(255, 99, 132)',
                                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                                pointRadius: 0,
                             },
                             {
                                 label: 'B',
                                 data: pfComp.pfComp2,
                                 borderColor: 'rgb(240, 233, 42)',
                                 backgroundColor: 'rgba(241, 236, 95, 0.5)',
+                                pointRadius: 0,
                             },
                             {
                                 label: 'C',
                                 data: pfComp.pfComp3,
                                 borderColor: 'rgb(128, 245, 89)',
                                 backgroundColor: 'rgba(87, 210, 49, 0.5)',
+                                pointRadius: 0,
                             },
                         ],
                     }}

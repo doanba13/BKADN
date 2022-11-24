@@ -45,18 +45,21 @@ const createChartData = (data: any, type: boolean) => {
                 data: type ? data.V1 : data.I1,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                pointRadius: 0,
             },
             {
                 label: type ? 'V2' : 'I2',
                 data: type ? data.V2 : data.I2,
                 borderColor: 'rgb(240, 233, 42)',
                 backgroundColor: 'rgba(241, 236, 95, 0.5)',
+                pointRadius: 0,
             },
             {
                 label: type ? 'V3' : 'I3',
                 data: type ? data.V3 : data.I3,
                 borderColor: 'rgb(128, 245, 89)',
                 backgroundColor: 'rgba(87, 210, 49, 0.5)',
+                pointRadius: 0,
             },
         ],
     };

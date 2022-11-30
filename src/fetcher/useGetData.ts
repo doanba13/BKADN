@@ -37,9 +37,9 @@ const inititalData: any = {
         MStep4: 3,
     },
     MV: {
-        V1: [],
-        V2: [],
-        V3: [],
+        A: [],
+        B: [],
+        C: [],
     },
     Man: false,
     PFSet: undefined,

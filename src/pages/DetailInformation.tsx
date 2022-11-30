@@ -75,15 +75,22 @@ const DetailInfo = () => {
         setIsStart(!isStart);
         update(ref(realtimeDb), {
             Start: !isStart,
-            Submit: !isStart,
         });
     };
 
     const toggleSetSellect = (data: boolean) => {
         update(ref(realtimeDb), {
             Man: data,
-            Submit: 1,
         });
+    };
+
+    const onSetHandler = () => {
+        const sendSubmit = setInterval(() => {
+            update(ref(realtimeDb), {
+                Submit: 1,
+            });
+        }, 100);
+        setTimeout(() => clearInterval(sendSubmit), 2000);
     };
 
     return (
@@ -128,6 +135,7 @@ const DetailInfo = () => {
                                 marginTop: '0.5rem',
                             }}
                         >
+                            <Button onClick={onSetHandler}>Set</Button>
                             <Button onClick={startStopHandler}>{isStart ? 'Stop' : 'Start'}</Button>
                             <div
                                 style={{

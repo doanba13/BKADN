@@ -22,7 +22,7 @@ const SettingPage = () => {
     const onSubmitHandler = (value: any) => {
         update(ref(realtimeDb), {
             Fmode: value.phaseMode,
-            Submit: true,
+            Submit: 1,
             CTratio: +value.ctRatio,
             PFSet: +value.powerFactor,
         });

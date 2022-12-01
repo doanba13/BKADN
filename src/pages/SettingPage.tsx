@@ -22,10 +22,15 @@ const SettingPage = () => {
     const onSubmitHandler = (value: any) => {
         update(ref(realtimeDb), {
             Fmode: value.phaseMode,
-            Submit: 1,
             CTratio: +value.ctRatio,
             PFSet: +value.powerFactor,
         });
+        const sendSubmit = setInterval(() => {
+            update(ref(realtimeDb), {
+                Submit: 1,
+            });
+        }, 100);
+        setTimeout(() => clearInterval(sendSubmit), 2000);
     };
 
     if (isLoading) return <LoadingComponent />;

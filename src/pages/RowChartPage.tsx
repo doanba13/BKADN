@@ -42,21 +42,21 @@ const RowChartPage = () => {
         datasets: [
             {
                 label: 'A',
-                data: MV.A,
+                data: MV.V1,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 pointRadius: 0,
             },
             {
                 label: 'B',
-                data: MV.B,
+                data: MV.V2,
                 borderColor: 'rgb(240, 233, 42)',
                 backgroundColor: 'rgba(241, 236, 95, 0.5)',
                 pointRadius: 0,
             },
             {
                 label: 'C',
-                data: MV.C,
+                data: MV.V3,
                 borderColor: 'rgb(128, 245, 89)',
                 backgroundColor: 'rgba(87, 210, 49, 0.5)',
                 pointRadius: 0,
@@ -70,21 +70,21 @@ const RowChartPage = () => {
             datasets: [
                 {
                     label: 'A',
-                    data: MV.A,
+                    data: MV.V1,
                     borderColor: 'rgb(255, 99, 132)',
                     backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     pointRadius: 0,
                 },
                 {
                     label: 'B',
-                    data: MV.B,
+                    data: MV.V2,
                     borderColor: 'rgb(240, 233, 42)',
                     backgroundColor: 'rgba(241, 236, 95, 0.5)',
                     pointRadius: 0,
                 },
                 {
                     label: 'C',
-                    data: MV.C,
+                    data: MV.V3,
                     borderColor: 'rgb(128, 245, 89)',
                     backgroundColor: 'rgba(87, 210, 49, 0.5)',
                     pointRadius: 0,

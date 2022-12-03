@@ -35,7 +35,7 @@ export const options = {
 const labels = new Array(64).fill('');
 
 const RowChartPage = () => {
-    const { MV, Vrms, Irms } = useGetData();
+    const { MV, Vrms, Irms, csel } = useGetData();
 
     const [chartData, setChartData] = useState<any>({
         labels,
@@ -120,6 +120,7 @@ const RowChartPage = () => {
                 <Switch
                     checkedChildren="Current"
                     unCheckedChildren="Voltage"
+                    checked={csel}
                     onChange={(value) => {
                         update(ref(realtimeDb), {
                             csel: value ? true : false,

@@ -128,6 +128,7 @@ const inititalData: any = {
         Vrms2: 221,
         Vrms3: 222,
     },
+    csel: true,
 };
 
 export const useGetData = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Layout } from 'antd';
 import {
@@ -12,6 +12,7 @@ import {
     Tooltip,
 } from 'chart.js';
 
+import { useChartContext } from '@/context/chartCtx';
 import { useGetData } from '@/fetcher/useGetData';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -46,12 +47,12 @@ const labels = new Array(64).fill('');
 
 const ChartPage = () => {
     const { PFcomped, PFload } = useGetData();
-    const [pfComp, setPfcomp] = useState({ pfComp1: [], pfComp2: [], pfComp3: [] });
-    const [pfLoad, setPfload] = useState({ pfLoad1: [], pfLoad2: [], pfLoad3: [] });
+    const { pfComp, pfLoad, setComp, setLoad } = useChartContext((state) => state);
 
     console.log(pfComp, pfLoad);
 
     useEffect(() => {
+        if (!PFcomped.PFload1) return;
         const { pfComp1, pfComp2, pfComp3 } = { ...pfComp };
         if (pfComp1.length === 64) {
             pfComp1.shift();
@@ -62,10 +63,11 @@ const ChartPage = () => {
         pfComp2.push(PFcomped.PFload2);
         pfComp3.push(PFcomped.PFload3);
 
-        setPfcomp({ pfComp1, pfComp2, pfComp3 });
+        setComp({ pfComp1, pfComp2, pfComp3 });
     }, [PFcomped]);
 
     useEffect(() => {
+        if (!PFload.PFload1) return;
         const { pfLoad1, pfLoad2, pfLoad3 } = { ...pfLoad };
         if (pfLoad1.length === 64) {
             pfLoad1.shift();
@@ -76,7 +78,7 @@ const ChartPage = () => {
         pfLoad2.push(PFload.PFload2);
         pfLoad3.push(PFload.PFload3);
 
-        setPfload({ pfLoad1, pfLoad2, pfLoad3 });
+        setLoad({ pfLoad1, pfLoad2, pfLoad3 });
     }, [PFload]);
 
     return (
